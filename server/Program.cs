@@ -8,7 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllers();
 
-// הוספת השירותים שלנו
+//add sevices
 builder.Services.AddScoped<AirplaneService>();
 builder.Services.AddScoped<CustomerService>();
 builder.Services.AddScoped<FlightService>();
