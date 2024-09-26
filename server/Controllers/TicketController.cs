@@ -66,5 +66,19 @@ namespace ServicesGatway.Controllers
             await _ticketService.DeleteTicket(id);
             return NoContent();
         }
+
+        // TicketController.cs
+
+        [HttpGet("customer/{customerId}")]
+        public async Task<ActionResult<List<Ticket>>> GetTicketsByCustomerId(int customerId)
+        {
+            var tickets = await _ticketService.GetTicketsByCustomerId(customerId);
+            if (tickets == null || !tickets.Any())
+            {
+                return NotFound("No tickets found for the specified customer.");
+            }
+            return Ok(tickets);
+        }
+
     }
 }

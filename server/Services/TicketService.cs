@@ -50,5 +50,15 @@ namespace ServicesGatway.Services
                 await _context.SaveChangesAsync();
             }
         }
+
+        // TicketService.cs
+
+        public async Task<List<Ticket>> GetTicketsByCustomerId(int customerId)
+        {
+            return await _context.Tickets
+                .Where(t => t.CustomerId == customerId)
+                .ToListAsync();
+        }
+
     }
 }

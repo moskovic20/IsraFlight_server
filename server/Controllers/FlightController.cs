@@ -175,5 +175,25 @@ namespace ServicesGatway.Controllers
         }
 
 
+        [HttpGet("airplane-ids")]
+        public async Task<ActionResult<List<int>>> GetAllAirplaneIds()
+        {
+            try
+            {
+                var airplaneIds = await _flightService.GetAllAirplaneIds();
+                if (airplaneIds == null || airplaneIds.Count == 0)
+                {
+                    return NotFound("No airplane IDs found.");
+                }
+                return Ok(airplaneIds);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest($"Error retrieving airplane IDs: {ex.Message}");
+            }
+        }
+
+
+
     }
 }

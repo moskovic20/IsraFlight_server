@@ -47,7 +47,7 @@ namespace ServicesGatway.Controllers
 
             if (!isAirplaneImage)
             {
-                return BadRequest("The image provided is not recognized as an airplane.");
+                return BadRequest("The image is not airplane.");
             }
 
             // אם התמונה זוהתה כמטוס, נוסיף את המטוס למסד הנתונים

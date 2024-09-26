@@ -84,5 +84,14 @@ namespace ServicesGatway.Services
                 .ToListAsync();
         }
 
+        public async Task<List<int>> GetAllAirplaneIds()
+        {
+            return await _context.Flights
+                .Select(f => f.AirplaneId)
+                .Distinct() // נוודא שאין כפילויות במספרי המטוסים
+                .ToListAsync();
+        }
+
+
     }
 }
